@@ -10,19 +10,11 @@ import Footer from "./components/common/Footer";
 // Pages
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
-// import Gallery from './pages/Gallery'; // We will build this next
-import Contact from './pages/Contact';
-
-// Temporary Placeholders
-const Gallery = () => (
-  <div className="h-screen bg-black text-white flex items-center justify-center">
-    Gallery Coming Soon
-  </div>
-);
+import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery"; // Import the new real page
 
 const Layout = ({ children }) => {
   const location = useLocation();
-  // Hide footer ONLY on /contact page
   const showFooter = location.pathname !== "/contact";
 
   return (
