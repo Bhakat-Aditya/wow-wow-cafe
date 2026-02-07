@@ -61,3 +61,14 @@ const Hero = () => {
     </div>
   );
 };
+
+const Home = () => {
+  return (
+    <div>
+      <Hero />
+      {/* You can add your Bestseller Slider component here later */}
+    </div>
+  );
+};
+
+export default Home;
