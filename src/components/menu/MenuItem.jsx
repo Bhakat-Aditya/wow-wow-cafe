@@ -1,233 +1,111 @@
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import {
-  MapPin,
-  Phone,
-  Clock,
-  Star,
-  ExternalLink,
-  ArrowRight,
-} from "lucide-react";
 
-const GoogleReviews = () => {
-  const [loading, setLoading] = useState(true);
+const MenuItem = ({ item, index }) => {
+  const hasVariants = typeof item.price === "object";
+  const [variant, setVariant] = useState("full");
+  const cardRef = useRef(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
+  const currentPrice = hasVariants ? item.price[variant] : item.price;
 
-  const reviews = [
-    {
-      id: 1,
-      name: "Rohan Das",
-      date: "2 days ago",
-      rating: 5,
-      text: "One of the most popular cafes in Midnapore. The vibe is amazing and the food is totally worth the price.",
-      avatar: "R",
-    },
-    {
-      id: 2,
-      name: "Sneha Roy",
-      date: "1 week ago",
-      rating: 4,
-      text: "Great place to hang out with friends. Service is good, just a bit crowded on weekends because it's so popular.",
-      avatar: "S",
-    },
-    {
-      id: 3,
-      name: "Amit Kumar",
-      date: "3 weeks ago",
-      rating: 5,
-      text: "Love the Momos and the coffee! Best place for evening snacks.",
-      avatar: "A",
-    },
-  ];
+  // Hover Animations
+  const onEnter = () => {
+    gsap.to(cardRef.current, {
+      y: -10,
+      scale: 1.02,
+      boxShadow: "0 20px 30px -10px rgba(239, 68, 68, 0.3)",
+      duration: 0.3,
+    });
+  };
 
-  if (loading) {
-    return (
-      <div className="animate-pulse flex flex-col gap-4">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="h-32 bg-white/5 rounded-2xl w-full"></div>
-        ))}
-      </div>
-    );
-  }
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {reviews.map((review) => (
-        <div
-          key={review.id}
-          className="bg-[#202124] p-5 rounded-2xl border border-white/5 hover:border-white/20 transition-all"
-        >
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-bold">
-              {review.avatar}
-            </div>
-            <div>
-              <h4 className="font-bold text-white text-sm">{review.name}</h4>
-              <span className="text-gray-400 text-xs">{review.date}</span>
-            </div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-              alt="Google"
-              className="w-5 h-5 ml-auto opacity-70"
-            />
-          </div>
-          <div className="flex text-yellow-400 mb-2">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                size={14}
-                fill={i < review.rating ? "currentColor" : "none"}
-                className={i >= review.rating ? "text-gray-600" : ""}
-              />
-            ))}
-          </div>
-          <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
-            {review.text}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const Contact = () => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".anim-up", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
+  const onLeave = () => {
+    gsap.to(cardRef.current, {
+      y: 0,
+      scale: 1,
+      boxShadow: "0 0 0 0 rgba(0,0,0,0)",
+      duration: 0.3,
+    });
+  };
 
   return (
     <div
-      ref={containerRef}
-      className="min-h-screen bg-black text-white pt-24 pb-10 px-4 md:px-10"
+      ref={cardRef}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      className="group relative bg-neutral-900/40 backdrop-blur-md border border-white/10 rounded-3xl p-4 overflow-hidden shadow-xl"
     >
-      {/* Header */}
-      <div className="text-center mb-16 anim-up">
-        <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-600">
-          Visit Us
-        </h1>
-        <p className="text-gray-400 mt-4 text-lg">
-          Good Food. Great Vibes. Every Day.
-        </p>
-      </div>
+      {/* Neon Glow Border Effect */}
+      <div className="absolute inset-0 border-2 border-transparent group-hover:border-red-500/50 rounded-3xl transition-colors duration-500 pointer-events-none z-10" />
 
-      {/* Info Cards */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 anim-up">
-        <div className="bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-6 rounded-3xl text-center hover:bg-white/5 transition-colors group">
-          <div className="bg-red-600/20 p-4 rounded-full text-red-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <MapPin size={32} />
-          </div>
-          <h3 className="text-xl font-bold uppercase mb-2">Location</h3>
-          <p className="text-gray-400">
-            Keranitola, Midnapore,
-            <br />
-            West Bengal 721101
-          </p>
-        </div>
-
-        <div className="bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-6 rounded-3xl text-center hover:bg-white/5 transition-colors group">
-          <div className="bg-red-600/20 p-4 rounded-full text-red-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Phone size={32} />
-          </div>
-          <h3 className="text-xl font-bold uppercase mb-2">Call Us</h3>
-          <p className="text-gray-400">+91 98765 43210</p>
-          <p className="text-gray-500 text-sm mt-2">Available 10 AM - 10 PM</p>
-        </div>
-
-        <div className="bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-6 rounded-3xl text-center hover:bg-white/5 transition-colors group">
-          <div className="bg-red-600/20 p-4 rounded-full text-red-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Clock size={32} />
-          </div>
-          <h3 className="text-xl font-bold uppercase mb-2">Open Hours</h3>
-          <p className="text-gray-400">Mon - Sun</p>
-          <p className="text-white font-bold text-lg">11:00 AM - 10:00 PM</p>
-        </div>
-      </div>
-
-      {/* Google Reviews Section */}
-      <div className="max-w-5xl mx-auto mb-20 anim-up">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <div className="bg-white p-2 rounded-full">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-                className="w-6 h-6"
-                alt="G"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold">Rating</h3>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <span className="text-white font-bold text-xl">4.1</span>
-                <div className="flex text-yellow-400">
-                  <Star size={16} fill="currentColor" />
-                  <Star size={16} fill="currentColor" />
-                  <Star size={16} fill="currentColor" />
-                  <Star size={16} fill="currentColor" />
-                  <Star size={16} className="text-gray-600" />
-                </div>
-                <span className="text-gray-400 font-medium">
-                  (1.1k+ Reviews)
-                </span>
-              </div>
-            </div>
-          </div>
-          <a
-            href="https://www.google.com/maps/place/WOW+WOW+CAFE/data=!4m7!3m6!1s0x3a1d4734892c9085:0xbd95c8088195a943!8m2!3d22.4278453!4d87.3195304!16s%2Fg%2F11td4h936_?authuser=0&hl=en&rclk=1"
-            target="_blank"
-            rel="noreferrer"
-            className="hidden md:flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full text-sm font-bold transition-all"
-          >
-            Write a Review <ArrowRight size={16} />
-          </a>
-        </div>
-
-        <GoogleReviews />
-
-        <div className="mt-8 text-center md:hidden">
-          <a
-            href="https://www.google.com/maps/place/WOW+WOW+CAFE/data=!4m7!3m6!1s0x3a1d4734892c9085:0xbd95c8088195a943!8m2!3d22.4278453!4d87.3195304!16s%2Fg%2F11td4h936_?authuser=0&hl=en&rclk=1"
-            className="text-red-500 font-bold uppercase text-sm tracking-widest flex items-center justify-center gap-2"
-          >
-            See all reviews on Google <ExternalLink size={16} />
-          </a>
-        </div>
-      </div>
-
-      {/* Map Section - FIXED */}
-      <div className="anim-up w-full h-[450px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
-        <div className="absolute inset-0 bg-red-900/10 pointer-events-none z-10 mix-blend-overlay" />
-
-        <iframe
-          title="Wow Wow Cafe Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.697428784865!2d87.3195304!3d22.4278453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d4734892c9085%3A0xbd95c8088195a943!2sWOW%20WOW%20CAFE!5e0!3m2!1sen!2sin!4v1707300000000!5m2!1sen!2sin"
-          width="100%"
-          height="100%"
-          style={{
-            border: 0,
-            filter: "invert(90%) hue-rotate(180deg) contrast(90%)",
+      {/* Image Container with Zoom Effect */}
+      <div className="h-56 w-full rounded-2xl overflow-hidden mb-5 relative z-0">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 opacity-60" />
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+          onError={(e) => {
+            e.target.src =
+              "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=500";
           }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+        />
+
+        {/* Bestseller Badge - Floating */}
+        {item.bestseller && (
+          <div className="absolute top-3 left-3 z-20">
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg animate-pulse">
+              ★ Top Pick
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="text-2xl font-black text-white leading-none tracking-tight uppercase group-hover:text-red-500 transition-colors">
+            {item.name}
+          </h3>
+        </div>
+
+        <p className="text-gray-400 text-sm mb-4 line-clamp-2 font-light">
+          {item.description ||
+            "Crispy, delicious, and made with love. The perfect bite for your cravings."}
+        </p>
+
+        {/* Action Bar */}
+        <div className="flex items-center justify-between mt-4 bg-white/5 p-2 rounded-xl backdrop-blur-sm border border-white/5">
+          {/* Price */}
+          <span className="text-red-400 font-mono font-bold text-xl px-2">
+            ₹{currentPrice}
+          </span>
+
+          {/* Variant Toggles */}
+          {hasVariants ? (
+            <div className="flex bg-black/50 rounded-lg p-1">
+              {["half", "full"].map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setVariant(v)}
+                  className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-md transition-all duration-300 ${
+                    variant === v
+                      ? "bg-red-600 text-white shadow-lg"
+                      : "text-gray-500 hover:text-white"
+                  }`}
+                >
+                  {item.variantLabels?.[v] || v}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <span className="text-xs font-bold text-gray-500 uppercase tracking-wider bg-white/10 px-3 py-1 rounded-lg">
+              {item.pcs || "Plate"}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default MenuItem;

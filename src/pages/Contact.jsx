@@ -1,177 +1,236 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { MapPin, Phone, Mail, Clock, Star, Send } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import {
+  MapPin,
+  Phone,
+  Clock,
+  Star,
+  ExternalLink,
+  ArrowRight,
+} from "lucide-react";
+
+const GoogleReviews = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const reviews = [
+    {
+      id: 1,
+      name: "Rohan Das",
+      date: "2 days ago",
+      rating: 5,
+      text: "One of the most popular cafes in Midnapore. The vibe is amazing and the food is totally worth the price.",
+      avatar: "R",
+    },
+    {
+      id: 2,
+      name: "Sneha Roy",
+      date: "1 week ago",
+      rating: 4,
+      text: "Great place to hang out with friends. Service is good, just a bit crowded on weekends because it's so popular.",
+      avatar: "S",
+    },
+    {
+      id: 3,
+      name: "Amit Kumar",
+      date: "3 weeks ago",
+      rating: 5,
+      text: "Love the Momos and the coffee! Best place for evening snacks.",
+      avatar: "A",
+    },
+  ];
+
+  if (loading) {
+    return (
+      <div className="animate-pulse flex flex-col gap-4">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-32 bg-white/5 rounded-2xl w-full"></div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {reviews.map((review) => (
+        <div
+          key={review.id}
+          className="bg-[#202124] p-5 rounded-2xl border border-white/5 hover:border-white/20 transition-all"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-bold">
+              {review.avatar}
+            </div>
+            <div>
+              <h4 className="font-bold text-white text-sm">{review.name}</h4>
+              <span className="text-gray-400 text-xs">{review.date}</span>
+            </div>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+              alt="Google"
+              className="w-5 h-5 ml-auto opacity-70"
+            />
+          </div>
+          <div className="flex text-yellow-400 mb-2">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                size={14}
+                fill={i < review.rating ? "currentColor" : "none"}
+                className={i >= review.rating ? "text-gray-600" : ""}
+              />
+            ))}
+          </div>
+          <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+            {review.text}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const Contact = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title Animation
-      gsap.from(".contact-title", {
-        y: -50,
+      gsap.from(".anim-up", {
+        y: 50,
         opacity: 0,
-        duration: 1,
-        ease: "power4.out"
-      });
-
-      // Left Side (Info) Slide In
-      gsap.from(".info-card", {
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        delay: 0.3,
-        ease: "power2.out"
-      });
-
-      // Right Side (Form) Slide In
-      gsap.from(".contact-form", {
-        x: 100,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: "power2.out"
-      });
-
-      // Map Fade In
-      gsap.from(".map-container", {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        delay: 0.8,
-        ease: "power2.out"
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
       });
     }, containerRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black text-white pt-24 pb-10 px-4 md:px-10 overflow-x-hidden">
-      
+    <div
+      ref={containerRef}
+      className="min-h-screen bg-black text-white pt-24 pb-10 px-4 md:px-10"
+    >
       {/* Header */}
-      <div className="text-center mb-16 contact-title">
+      <div className="text-center mb-16 anim-up">
         <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-600">
-          Get in Touch
+          Visit Us
         </h1>
-        <p className="text-gray-400 mt-4 text-lg">We'd love to hear from you.</p>
+        <p className="text-gray-400 mt-4 text-lg">
+          Good Food. Great Vibes. Every Day.
+        </p>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-        
-        {/* Left Col: Info & Reviews */}
-        <div className="space-y-8">
-          
-          {/* Info Card */}
-          <div className="info-card bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-red-500/30 transition-colors">
-            <h3 className="text-2xl font-bold mb-6 text-white uppercase tracking-wide">Contact Info</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-red-600/20 p-3 rounded-full text-red-500">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm uppercase font-bold tracking-wider">Address</p>
-                  <p className="text-xl font-medium">Jamunabali Abash, Midnapore, 721101</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-red-600/20 p-3 rounded-full text-red-500">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm uppercase font-bold tracking-wider">Phone</p>
-                  <p className="text-xl font-medium">+91 98765 43210</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="bg-red-600/20 p-3 rounded-full text-red-500">
-                  <Clock size={24} />
-                </div>
-                <div>
-                  <p className="text-gray-400 text-sm uppercase font-bold tracking-wider">Opening Hours</p>
-                  <p className="text-lg">Mon - Sun: 11:00 AM - 10:00 PM</p>
-                </div>
-              </div>
-            </div>
+      {/* Info Cards */}
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 anim-up">
+        {/* Address Card */}
+        <div className="bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-6 rounded-3xl text-center hover:bg-white/5 transition-colors group">
+          <div className="bg-red-600/20 p-4 rounded-full text-red-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <MapPin size={32} />
           </div>
-
-          {/* Reviews Card */}
-          <div className="info-card bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-8 rounded-3xl">
-            <h3 className="text-2xl font-bold mb-4 text-white uppercase tracking-wide flex items-center gap-3">
-              Customer Love <Star className="fill-yellow-400 text-yellow-400" />
-            </h3>
-            
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-4xl font-bold">4.8</span>
-              <div className="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-              </div>
-              <span className="text-gray-500 text-sm ml-2">(120+ Reviews)</span>
-            </div>
-            
-            <div className="italic text-gray-400 border-l-2 border-red-500 pl-4">
-              "The Chicken Steam Momos are to die for! Best cafe vibe in Midnapore hands down."
-              <br />
-              <span className="text-red-400 not-italic font-bold text-sm mt-2 block">- Priya Das</span>
-            </div>
-          </div>
-
+          <h3 className="text-xl font-bold uppercase mb-2">Location</h3>
+          <p className="text-gray-400">
+            Raja Bazar, Panchur Chak,
+            <br />
+            Midnapore, West Bengal 721101
+          </p>
         </div>
 
-        {/* Right Col: Form */}
-        <div className="contact-form bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-3xl h-full">
-          <h3 className="text-2xl font-bold mb-6 text-white uppercase tracking-wide">Send a Message</h3>
-          
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase">Name</label>
-                <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-red-500 transition-colors" placeholder="Your Name" />
+        {/* Phone Card */}
+        <div className="bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-6 rounded-3xl text-center hover:bg-white/5 transition-colors group">
+          <div className="bg-red-600/20 p-4 rounded-full text-red-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Phone size={32} />
+          </div>
+          <h3 className="text-xl font-bold uppercase mb-2">Call Us</h3>
+          <p className="text-gray-400">+91 98765 43210</p>
+          <p className="text-gray-500 text-sm mt-2">Available 10 AM - 10 PM</p>
+        </div>
+
+        {/* Hours Card */}
+        <div className="bg-neutral-900/50 backdrop-blur-xl border border-white/10 p-6 rounded-3xl text-center hover:bg-white/5 transition-colors group">
+          <div className="bg-red-600/20 p-4 rounded-full text-red-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <Clock size={32} />
+          </div>
+          <h3 className="text-xl font-bold uppercase mb-2">Open Hours</h3>
+          <p className="text-gray-400">Mon - Sun</p>
+          <p className="text-white font-bold text-lg">11:00 AM - 10:00 PM</p>
+        </div>
+      </div>
+
+      {/* Google Reviews Section */}
+      <div className="max-w-5xl mx-auto mb-20 anim-up">
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <div className="bg-white p-2 rounded-full">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                className="w-6 h-6"
+                alt="G"
+              />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold">Rating</h3>
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <span className="text-white font-bold text-xl">4.1</span>
+                <div className="flex text-yellow-400">
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} className="text-gray-600" />
+                </div>
+                <span className="text-gray-400 font-medium">
+                  (1.1k+ Reviews)
+                </span>
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-400 uppercase">Phone</label>
-                <input type="tel" className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-red-500 transition-colors" placeholder="Your Number" />
-              </div>
             </div>
+          </div>
+          {/* Linked to a Search for the Cafe Address */}
+          <a
+            href="https://www.google.com/search?q=Raja+Bazar+Panchur+Chak+Midnapore+Cafe"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden md:flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full text-sm font-bold transition-all"
+          >
+            Write a Review <ArrowRight size={16} />
+          </a>
+        </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-400 uppercase">Email</label>
-              <input type="email" className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-red-500 transition-colors" placeholder="name@example.com" />
-            </div>
+        <GoogleReviews />
 
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-400 uppercase">Message</label>
-              <textarea rows="4" className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-red-500 transition-colors resize-none" placeholder="Tell us what you loved..."></textarea>
-            </div>
-
-            <button className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl uppercase tracking-widest transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
-              Send Message <Send size={18} />
-            </button>
-          </form>
+        <div className="mt-8 text-center md:hidden">
+          <a
+            href="https://www.google.com/search?q=Raja+Bazar+Panchur+Chak+Midnapore+Cafe"
+            className="text-red-500 font-bold uppercase text-sm tracking-widest flex items-center justify-center gap-2"
+          >
+            See all reviews on Google <ExternalLink size={16} />
+          </a>
         </div>
       </div>
 
       {/* Map Section */}
-      <div className="map-container w-full h-[400px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
-         {/* Dark Mode Overlay for Map to make it look "Industry Grade" */}
+      <div className="anim-up w-full h-[450px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
         <div className="absolute inset-0 bg-red-900/10 pointer-events-none z-10 mix-blend-overlay" />
-        
-        <iframe 
+
+        {/* Corrected iFrame for Raja Bazar, Panchur Chak, Midnapore */}
+        <iframe
           title="Wow Wow Cafe Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.627785507567!2d87.3082!3d22.4257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDI1JzMyLjUiTiA4N8KwMTgnMjkuNSJF!5e0!3m2!1sen!2sin!4v1645000000000!5m2!1sen!2sin" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }} 
-          allowFullScreen="" 
+          src="https://maps.google.com/maps?q=Raja%20Bazar%2C%20Panchur%20Chak%2C%20Midnapore%2C%20West%20Bengal%20721101&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{
+            border: 0,
+            filter: "invert(90%) hue-rotate(180deg) contrast(90%)",
+          }}
+          allowFullScreen
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-
     </div>
   );
 };
