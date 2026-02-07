@@ -7,6 +7,7 @@ import interiorImg from "../assets/images/interior-hero.jpg";
 // Component Imports
 import BestsellerSlider from "../components/home/BestsellerSlider";
 import MiniGallery from "../components/home/MiniGallery";
+import StackedMenu from "../components/home/StackedMenu"; // New separate component
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +42,6 @@ const Hero = () => {
       ref={heroRef}
       className="relative h-screen w-full overflow-hidden flex items-center justify-center"
     >
-      {/* Background with Darker Overlay for Elegance */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ backgroundImage: `url(${interiorImg})` }}
@@ -51,7 +51,7 @@ const Hero = () => {
 
       <div className="relative z-10 text-center px-4">
         <p className="text-orange-500 font-bold tracking-[0.2em] uppercase mb-4 animate-fadeIn">
-          Est. 2026
+          
         </p>
         <h1
           ref={textRef}
@@ -73,18 +73,18 @@ const Hero = () => {
 
 const Home = () => {
   return (
-    <div className="bg-black w-full overflow-x-hidden">
+    <div className="bg-black w-full overflow-hidden">
       <Hero />
 
-      {/* The Pinned Section */}
+      {/* 1. Horizontal Scroll Section */}
       <BestsellerSlider />
 
-      {/* --- LAYOUT FIX --- */}
-      {/* This wrapper ensures everything sits ON TOP of the slider after it finishes */}
-      <div className="relative z-20 bg-black shadow-[0_-50px_100px_rgba(0,0,0,1)]">
-        <MiniGallery />
+      {/* 2. NEW: Separate Stacked Menu Section */}
+      <StackedMenu />
 
-        {/* Updated CTA Section */}
+      {/* 3. Bottom Content Wrapper */}
+      <div className="relative z-30 bg-black">
+        {/* Swapped order: CTA moves UP, MiniGallery moves DOWN */}
         <div className="bg-neutral-900 py-32 px-6 text-center border-t border-white/5">
           <p className="text-orange-500 font-bold uppercase tracking-widest mb-4">
             What are you waiting for?
@@ -99,6 +99,8 @@ const Home = () => {
             Order Now
           </Link>
         </div>
+
+        <MiniGallery />
       </div>
     </div>
   );
