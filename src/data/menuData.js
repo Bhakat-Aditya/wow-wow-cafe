@@ -8,7 +8,7 @@ export const menuData = [
         category: "Momos",
         price: 60,
         pcs: "5 Pcs",
-        image: "https://images.archanaskitchen.com/images/recipes/snack-recipes/indian-snack-recipes/Chicken_Momos_Recipe_Delicious_Steamed_Chicken_Dumplings_9f4ba30a90.jpg", // Placeholder path
+        image: "https://i.ytimg.com/vi/tdiEinZpEmI/maxresdefault.jpg", // Placeholder path
         bestseller: true, // Tagged for Home Slider
         description: "Classic steamed dumplings filled with juicy chicken."
     },
@@ -27,7 +27,7 @@ export const menuData = [
         category: "Momos",
         price: 75,
         pcs: "5 Pcs",
-        image: "https://jalojog.com/wp-content/uploads/2024/02/bb26e721a88ec05b781f7a0a726a03b6.jpg",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrTlbeuZ4VLROh2al0ApwfeiSpMwFR3b54lQ&s",
         bestseller: false,
     },
     {
@@ -36,7 +36,7 @@ export const menuData = [
         category: "Momos",
         price: 80,
         pcs: "5 Pcs",
-        image: "https://www.yumcurry.com/wp-content/uploads/2021/05/chilli-garlic-momos-feature-image.jpg",
+        image: "https://www.shutterstock.com/image-photo/pan-fried-chilli-veg-momo-600nw-2437601159.jpg",
         bestseller: false,
     },
     {
@@ -54,7 +54,7 @@ export const menuData = [
         category: "Momos",
         price: 80,
         pcs: "5 Pcs",
-        image: "https://5.imimg.com/data5/ANDROID/Default/2025/4/506904718/FX/SC/PF/106796246/product-jpeg.jpg",
+        image: "https://c.ndtvimg.com/2022-10/57qe3h68_kurkure-momo_625x300_28_October_22.png?im=FeatureCrop,algorithm=dnn,width=1200,height=675",
         bestseller: false,
     },
     {
@@ -63,7 +63,7 @@ export const menuData = [
         category: "Momos",
         price: 75,
         pcs: "5 Pcs",
-        image: "https://5.imimg.com/data5/SELLER/Default/2020/11/AC/GV/TN/60555898/chicken-momos.jpg",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM3FaSFvgBpSMr0AyfTSzgayxQHheKUBVZVA&s",
         bestseller: false,
     },
     {
@@ -81,7 +81,7 @@ export const menuData = [
         category: "Momos",
         price: 55,
         pcs: "5 Pcs",
-        image: "https://i.ytimg.com/vi/dNhgr9w7Y6g/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBX66hdQIfXhL35NSZVXGC5TKo8wg",
+        image: "https://img-global.cpcdn.com/recipes/f208d073a1e7058b/680x781cq80/fried-veg-momos-recipe-main-photo.jpg",
         bestseller: false,
     },
     {
@@ -90,7 +90,7 @@ export const menuData = [
         category: "Momos",
         price: 60,
         pcs: "5 Pcs",
-        image: "https://cdn.uengage.io/uploads/56406/image-DNR8LP-1731485656.png",
+        image: "https://hungryq.com/wp-content/uploads/2025/07/Paneer-Fried-Momos-Recipe-1.png",
         bestseller: false,
     },
 
@@ -100,7 +100,7 @@ export const menuData = [
         name: "Egg Roll",
         category: "Rolls",
         price: 50,
-        image: "https://www.chefkunalkapur.com/wp-content/uploads/2021/08/CW0_7822-1300x865.jpg?v=1628745250",
+        image: "https://myblacktree.com/cdn/shop/files/piyanki-sarkar1543382301-removebg-preview.png?v=1691128925",
         bestseller: false,
     },
     {
@@ -622,7 +622,7 @@ export const menuData = [
         category: "Mocktails",
         price: 85,
         pcs: "1",
-        image: "https://s.yimg.com/ny/api/res/1.2/epw_3rhR6V4H7pXRGvNNtw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTEzNzE7Y2Y9d2VicA--/https://media.zenfs.com/en/parade_250/741cb13ad01a4f9e96a2474f6f0d2372", // Tropical yellow/orange drink
+        image: "https://res.cloudinary.com/adityabhakat/image/upload/v1770562439/IMG-20260208-WA0026_x2htsh.jpg", // Tropical yellow/orange drink
         bestseller: false,
     },
     {
@@ -631,7 +631,7 @@ export const menuData = [
         category: "Mocktails",
         price: 85,
         pcs: "1",
-        image: "https://savortheflavour.com/wp-content/uploads/2020/07/Blue-Lagoon-Mocktail-Tasty.jpg", // Vibrant blue drink
+        image: "https://res.cloudinary.com/adityabhakat/image/upload/v1770562540/IMG-20260208-WA0002_u8sxbs.jpg", // Vibrant blue drink
         bestseller: false,
     },
     {
@@ -667,7 +667,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Frz1MlsUU51AqzJwdaqOWBNF_m3dsYnfwg&s", // Peach/Gradient orange
+        image: "https://res.cloudinary.com/adityabhakat/image/upload/v1770562439/IMG-20260208-WA0001_rsm7bv.jpg", // Peach/Gradient orange
         bestseller: false,
     },
     {
@@ -694,7 +694,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWpRbYAaJ8rfVuZ-jWE736L0qtjKtqfKjxmw&s", // Spicy/Red or stimulating mocktail
+        image: "https://res.cloudinary.com/adityabhakat/image/upload/v1770562438/IMG-20260208-WA0003_vchy7r.jpg", // Spicy/Red or stimulating mocktail
         bestseller: false,
     },
 

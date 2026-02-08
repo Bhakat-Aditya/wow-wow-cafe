@@ -96,7 +96,7 @@ const Home = () => {
             to="/menu"
             className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-orange-600 font-mono rounded-none focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 hover:bg-orange-700 uppercase tracking-widest"
           >
-            Order Now
+            View Menu
           </Link>
         </div>
 
