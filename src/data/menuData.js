@@ -127,14 +127,14 @@ export const menuData = [
         image: "https://orders.popskitchen.in/storage/2024/09/image-298.png",
         bestseller: false,
     },
-    {
-        id: "roll-5",
-        name: "Kabab Roll",
-        category: "Rolls",
-        price: 90,
-        image: "https://thespicemess.com/wp-content/uploads/2021/07/Seekh-Kabab-Roll-02.jpg",
-        bestseller: false,
-    },
+    // {
+    //     id: "roll-5",
+    //     name: "Kabab Roll",
+    //     category: "Rolls",
+    //     price: 90,
+    //     image: "https://thespicemess.com/wp-content/uploads/2021/07/Seekh-Kabab-Roll-02.jpg",
+    //     bestseller: false,
+    // },
     {
         id: "roll-5",
         name: "Egg Chicken Roll with Mayonnaise",
