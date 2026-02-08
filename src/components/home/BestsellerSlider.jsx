@@ -59,7 +59,7 @@ const BestsellerSlider = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 "
                   onError={(e) => {
                     e.target.src =
                       "https://images.unsplash.com/photo-1606131731446-5568d87113aa?auto=format&fit=crop&q=80&w=500";

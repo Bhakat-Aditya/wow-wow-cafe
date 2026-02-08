@@ -146,8 +146,8 @@ const Contact = () => {
             <Phone size={32} />
           </div>
           <h3 className="text-xl font-bold uppercase mb-2">Call Us</h3>
-          <p className="text-gray-400">+91 98765 43210</p>
-          <p className="text-gray-500 text-sm mt-2">Available 10 AM - 10 PM</p>
+          <p className="text-gray-400">+91 91679 65701</p>
+          <p className="text-gray-500 text-sm mt-2">Available 2 PM - 10 PM</p>
         </div>
 
         {/* Hours Card */}
@@ -157,7 +157,7 @@ const Contact = () => {
           </div>
           <h3 className="text-xl font-bold uppercase mb-2">Open Hours</h3>
           <p className="text-gray-400">Mon - Sun</p>
-          <p className="text-white font-bold text-lg">11:00 AM - 10:00 PM</p>
+          <p className="text-white font-bold text-lg">2:00 PM - 10:00 PM</p>
         </div>
       </div>
 
@@ -219,7 +219,7 @@ const Contact = () => {
         {/* Corrected iFrame for Raja Bazar, Panchur Chak, Midnapore */}
         <iframe
           title="Wow Wow Cafe Location"
-          src="https://maps.google.com/maps?q=Raja%20Bazar%2C%20Panchur%20Chak%2C%20Midnapore%2C%20West%20Bengal%20721101&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1751.7664342808214!2d87.32707134508901!3d22.424618151727287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d5b3bef997d8d%3A0x5fd59483ce07b0f!2sWow%20Wow%20Caf%C3%A9!5e0!3m2!1sen!2sin!4v1770534271041!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{

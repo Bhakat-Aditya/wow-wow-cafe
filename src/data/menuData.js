@@ -622,7 +622,7 @@ export const menuData = [
         category: "Mocktails",
         price: 85,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500&auto=format&fit=crop", // Tropical yellow/orange drink
+        image: "https://s.yimg.com/ny/api/res/1.2/epw_3rhR6V4H7pXRGvNNtw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTEzNzE7Y2Y9d2VicA--/https://media.zenfs.com/en/parade_250/741cb13ad01a4f9e96a2474f6f0d2372", // Tropical yellow/orange drink
         bestseller: false,
     },
     {
@@ -631,7 +631,7 @@ export const menuData = [
         category: "Mocktails",
         price: 85,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?q=80&w=500&auto=format&fit=crop", // Vibrant blue drink
+        image: "https://savortheflavour.com/wp-content/uploads/2020/07/Blue-Lagoon-Mocktail-Tasty.jpg", // Vibrant blue drink
         bestseller: false,
     },
     {
@@ -640,7 +640,7 @@ export const menuData = [
         category: "Mocktails",
         price: 85,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=500&auto=format&fit=crop", // Fresh orange citrus
+        image: "https://www.thespeckledpalate.com/wp-content/uploads/2015/03/The-Speckled-Palate-Sweet-Sunrise-Mocktail-Photo-683x1024.jpg", // Fresh orange citrus
         bestseller: false,
     },
     {
@@ -649,7 +649,7 @@ export const menuData = [
         category: "Mocktails",
         price: 75,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=500&auto=format&fit=crop", // Light blue refreshing drink
+        image: "https://www.diaryofarecipecollector.com/wp-content/uploads/2021/07/blue-breeze-cocktail-6.jpeg", // Light blue refreshing drink
         bestseller: false,
     },
     {
@@ -658,7 +658,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500&auto=format&fit=crop", // Classic Blue Lagoon look
+        image: "https://www.cupofzest.com/wp-content/uploads/2022/03/Blue-Lagoon-Mocktail-Thumbnail-2-Web.jpg.jpg", // Classic Blue Lagoon look
         bestseller: false,
     },
     {
@@ -667,7 +667,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?q=80&w=500&auto=format&fit=crop", // Peach/Gradient orange
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Frz1MlsUU51AqzJwdaqOWBNF_m3dsYnfwg&s", // Peach/Gradient orange
         bestseller: false,
     },
     {
@@ -676,7 +676,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1497534446932-c946e7316ba1?q=80&w=500&auto=format&fit=crop", // Pink/Berry mocktail
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpxFxAIwhrYhbNb5rAbh0WnIc0mD5pffiB9Q&s", // Pink/Berry mocktail
         bestseller: false,
     },
     {
@@ -685,7 +685,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500&auto=format&fit=crop", // Lime/Mint green drink
+        image: "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2023_38/2032024/tim-sweeney-cocktails-2x1-zz-230919-01.jpg", // Lime/Mint green drink
         bestseller: false,
     },
     {
@@ -694,7 +694,7 @@ export const menuData = [
         category: "Mocktails",
         price: 70,
         pcs: "1",
-        image: "https://images.unsplash.com/photo-1544145945-f904253d0c7b?q=80&w=500&auto=format&fit=crop", // Spicy/Red or stimulating mocktail
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWpRbYAaJ8rfVuZ-jWE736L0qtjKtqfKjxmw&s", // Spicy/Red or stimulating mocktail
         bestseller: false,
     },
 

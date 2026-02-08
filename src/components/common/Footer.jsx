@@ -100,7 +100,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3 text-gray-400 text-sm">
               <Phone className="shrink-0 text-orange-600" size={18} />
-              <span>+91 98765 43210</span>
+              <span>+91 91679 65701</span>
             </li>
             <li className="flex items-center gap-3 text-gray-400 text-sm">
               <Mail className="shrink-0 text-orange-600" size={18} />
@@ -116,12 +116,8 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li className="flex justify-between text-gray-400">
-              <span>Mon - Fri</span>
-              <span className="text-white">11:00 AM - 10:00 PM</span>
-            </li>
-            <li className="flex justify-between text-gray-400">
-              <span>Sat - Sun</span>
-              <span className="text-white">10:00 AM - 11:00 PM</span>
+              <span>Mon - Sun</span>
+              <span className="text-white">2:00 PM - 10:00 PM</span>
             </li>
           </ul>
         </div>

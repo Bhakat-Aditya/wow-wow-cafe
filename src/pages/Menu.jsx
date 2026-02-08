@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { menuData, categories } from "../data/menuData";
 import MenuItem from "../components/menu/MenuItem";
 
@@ -27,33 +28,27 @@ const Menu = () => {
         </p>
       </div>
 
-      {/* Category Tabs */}
-      <div className="sticky top-20 z-30 bg-black/80 backdrop-blur-md py-4 mb-12 border-y border-white/10">
-        <div className="flex overflow-x-auto gap-8 justify-start md:justify-center px-4 no-scrollbar">
-          <button
-            onClick={() => setActiveCategory("All")}
-            className={`whitespace-nowrap pb-1 text-sm font-bold uppercase tracking-widest border-b-2 transition-all ${
-              activeCategory === "All"
-                ? "text-orange-500 border-orange-500"
-                : "text-gray-500 border-transparent hover:text-white"
-            }`}
+      {/* Category Dropdown (Sticky) */}
+      <div className="sticky top-20 z-30 bg-black/90 backdrop-blur-md py-6 mb-12 border-y border-white/10 flex justify-center">
+        <div className="relative w-full max-w-xs md:max-w-sm">
+          {/* Custom Styled Select */}
+          <select
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value)}
+            className="w-full appearance-none bg-neutral-900 text-white border border-white/20 py-4 pl-6 pr-12 font-bold uppercase tracking-widest focus:outline-none focus:border-orange-500 transition-colors cursor-pointer rounded-none"
           >
-            All Items
-          </button>
+            <option value="All">All Items</option>
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
 
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`whitespace-nowrap pb-1 text-sm font-bold uppercase tracking-widest border-b-2 transition-all ${
-                activeCategory === cat
-                  ? "text-orange-500 border-orange-500"
-                  : "text-gray-500 border-transparent hover:text-white"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {/* Dropdown Icon */}
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-orange-500">
+            <ChevronDown size={20} />
+          </div>
         </div>
       </div>
 
