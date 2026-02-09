@@ -36,7 +36,7 @@ export const menuData = [
         category: "Momos",
         price: 80,
         pcs: "5 Pcs",
-        image: "https://www.shutterstock.com/image-photo/pan-fried-chilli-veg-momo-600nw-2437601159.jpg",
+        image: "https://res.cloudinary.com/adityabhakat/image/upload/v1770626203/IMG-20260208-WA0025_ta203l.jpg",
         bestseller: false,
     },
     {
@@ -248,7 +248,7 @@ export const menuData = [
         category: "Sandwiches",
         price: 120,
         pcs: "1 Pcs",
-        image: "https://www.kitchensanctuary.com/wp-content/uploads/2024/10/Egg-Mayonnaise-square-FS-500x500.jpg",
+        image: "https://res.cloudinary.com/adityabhakat/image/upload/v1770562439/IMG-20260208-WA0008_iiaowg.jpg",
         bestseller: false,
     },
     {
@@ -421,7 +421,7 @@ export const menuData = [
         category: "Combos",
         price: 145,
         pcs: "1",
-        image: "https://i.ytimg.com/vi/iIvz3PtV6_8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBe76In2quyAsoW_jaX8gyXHw1Dow",
+        image: "https://www.ruchikrandhap.com/wp-content/uploads/2018/03/Mixed-Vegetable-Fried-Rice-3-1-500x500.jpg",
         bestseller: true,
     },
 
